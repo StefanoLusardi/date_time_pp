@@ -1,0 +1,10 @@
+function(add_example EXAMPLE_TARGET)
+	add_executable(${EXAMPLE_TARGET} src/${EXAMPLE_TARGET}.cpp)
+	target_link_libraries(${EXAMPLE_TARGET} PRIVATE dtpp)
+	if(${DTPP_INSTALL_EXAMPLES})
+		install(TARGETS ${EXAMPLE_TARGET} RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+	endif()
+endfunction()
+
+add_example(example_api)
+add_example(example_range)
